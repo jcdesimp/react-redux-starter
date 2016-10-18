@@ -24,16 +24,19 @@ class CounterControls extends React.Component {
         return (
             <div>
                 <button
+                    className="counter-btn counter-plus-btn"
                     onClick={this.props.onPlusClick}
                 >
                 +
                 </button>
                 <button
+                    className="counter-btn counter-sub-btn"
                     onClick={this.props.onSubClick}
                 >
                 -
                 </button>
                 <button
+                    className="counter-btn counter-reset-btn"
                     onClick={this.props.onResetClick}
                 >
                 Reset

@@ -22,9 +22,15 @@ class CounterData extends React.Component {
      */
     render() {
         return (
-            <div>
-                <h2>Counter Value: {this.props.counterValue}</h2>
-                <h2>Total Clicks: {this.props.totalClicks}</h2>
+            <div className="counter-display">
+                <div className="counter-display-title">Counter Value</div>
+                <div className="counter-display-value">
+                    {this.props.counterValue}
+                </div>
+                <div className="counter-display-title">Total Clicks</div>
+                <div className="counter-display-value">
+                    {this.props.totalClicks}
+                </div>
             </div>
         )
     }

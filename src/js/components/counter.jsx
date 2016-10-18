@@ -15,7 +15,7 @@ class Counter extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="counter-container">
                 <CounterControls
                     {...this.props}
                 />

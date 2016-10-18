@@ -1,7 +1,7 @@
 "use strict"
 
-import Counter from 'components/counter';
 import { connect } from 'react-redux';
+import Counter from './counter';
 
 import {incrementCounter, decrementCounter, resetCounter} from '../actions/counter';
 
