@@ -5,6 +5,11 @@ import Counter from 'components/connectedCounter';
 import Home from 'components/connectedHome';
 import NavigationFrame from 'components/NavigationFrame';
 import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux';
+
+import Store from './store';
+
+let history = syncHistoryWithStore(browserHistory, Store);
 
 class App extends React.Component {
 	constructor(props) {
@@ -18,7 +23,7 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<Router history={browserHistory}>
+			<Router history={history}>
 				<Route path="/" component={NavigationFrame}>
 					<IndexRoute component={Home} />
 			     	<Route path="counter" component={Counter}/>
