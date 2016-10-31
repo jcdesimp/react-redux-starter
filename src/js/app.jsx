@@ -7,6 +7,7 @@ import NavigationFrame from 'components/NavigationFrame';
 import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 
+import DevTools from 'components/devTools/devTools';
 import Store from './store';
 
 let history = syncHistoryWithStore(browserHistory, Store);
@@ -23,13 +24,16 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<Router history={history}>
-				<Route path="/" component={NavigationFrame}>
-					<IndexRoute component={Home} />
-			     	<Route path="counter" component={Counter}/>
-			     	
-			    </Route>
-			</Router>
+			<div>
+				{process.env.NODE_ENV === 'production' ? null : <DevTools/>}
+				<Router history={history}>
+					<Route path="/" component={NavigationFrame}>
+						<IndexRoute component={Home} />
+				     	<Route path="counter" component={Counter}/>
+				     	
+				    </Route>
+				</Router>
+			</div>
 		)
 	}
 
