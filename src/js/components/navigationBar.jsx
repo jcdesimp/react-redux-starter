@@ -29,10 +29,6 @@ const navigationLinkStyle = {
     MsUserSelect: "none"
 };
 
-// const rightNavListStyle = {
-//     float: "right",
-//     textAlign: "right"
-// };
 
 class NavigationBar extends React.Component {
 
