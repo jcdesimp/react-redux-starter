@@ -12,7 +12,7 @@ It is assumed that you have NodeJS v6.0+ installed and npm.
 
 When you first clone the repo you will need to do `npm install` to install the dependencies.
 
-To start the development server run `npm run dev`.
+To start the development server run `npm start`.
 
 Project Structure
 ----
