@@ -8,7 +8,16 @@
 		<% } %>
 	</head>
  	<body>
-	    <div id="app-container"></div>
+	    <div id="app-container">
+	    	<noscript>
+	    		<div>
+	    			<span>
+	    				JavaScript must be enabled!
+    				</span>
+    			</div>
+		    </noscript>
+	    </div>
+	    
 	    <% for (var js in htmlWebpackPlugin.files.js) { 
 			%><script type="text/javascript" src="<%= htmlWebpackPlugin.files.js[js] %>"></script><%
 		} %>

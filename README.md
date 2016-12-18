@@ -16,7 +16,7 @@ To start the development server run `npm start`.
 
 Project Structure
 ----
-There are a number of subdirectories within the applixation structure.
+There are a number of subdirectories within the application structure.
 
 - bin/
    - This directory gets created when the app is built. The result ends up in here.
