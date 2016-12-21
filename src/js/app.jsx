@@ -25,7 +25,6 @@ const App = () => (
             <Route path="/" component={NavigationFrame}>
                 <IndexRoute component={Home} />
                 <Route path="counter" component={counter.Counter}/>
-                
             </Route>
         </Router>
     </div>

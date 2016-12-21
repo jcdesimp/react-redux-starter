@@ -18,21 +18,40 @@ Project Structure
 ----
 There are a number of subdirectories within the application structure.
 
-- bin/
-   - This directory gets created when the app is built. The result ends up in here.
-- src/
-	- index.ejs
+- **bin/**
+   - This directory gets created when the app is built. The result ends up in here. In a production environment, these files would be statically served.
+- **src/**
+	- **index.ejs**
 		- EJS template that the root HTML page gets built on top of.
-	- index.js
+	- **index.js**
 		- Entry point for the JavaScript application
-	- js/
-		- actions/
-			- This directory contains all Redux actions and action creators.
-		- components/
-			- This directory contains all React components.
-	- reducers/
-		- All Rexux reducers are defined within here.
-	- app.jsx
+	- **js/**
+		- **modules/**
+			- This directory contains the independent, feature oriented modules. The modules separate various parts of the application.
+			- **myModule/**
+				- A sample module
+				- **components/**
+					- All react components specific to this module should be defined here.
+				- **actions.js**
+					- This is where the redux action creators for this module are defined.
+				- **actionTypes.js**
+					- This is where the specific redux action types for this module should be defined.
+				- **constants.js**
+					- Any module constants should be defined here. Notably the module name.
+				- **reducer.js**
+					- This is where the redux reducer for this module is implemented. It should handle the actions defined in this module's `actionTypes.js`.
+				- **index.js**
+					- This is where the interface for this module is defined. In this file you explicitly export any action types, react components, etc. from this module so other modules can use them. You should have a single object be the default export. This way other modules will simply require the directory name and the this index file will determine what that does. Typically you would want to export the module name (from the constants), the reducer so that it can be combined in the top level root reducer, and the top-level component that your app would need to place somewhere.
+		- **lib/**
+			- This is where any files/components that don't fit within any of the explicitly created modules should go. 
+	- **app.jsx**
 		- Root React Component that the rest of the components are built on top of.
-	- store.js
-		- The Redux store.
+	- **store.js**
+		- The Redux store. The various reducers are combined here.
+
+		
+Tips
+-----
+ - The `lib` folder and the `modules` folder are aliased in the webpack config, they can be accessed via their names alone, paths are not needed.
+ - To produce a compiled app, you can do `npm run`. set the `NODE_ENV` environment variable to "production" to combile for production.
+	 - `NODE_ENV=production npm build`
