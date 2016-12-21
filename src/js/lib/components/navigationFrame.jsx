@@ -6,7 +6,7 @@ import NavigationBar from './navigationBar';
 let links = [
     {
         to: '/',
-        name: 'ToastDos'
+        name: 'react-redux-starter'
     },
     {
         to: '/counter',

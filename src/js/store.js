@@ -1,13 +1,20 @@
 "use strict";
 /* global process */
 
+import { combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
-
 import thunk from 'redux-thunk';
-import reducer from './reducers';
+
+import counter from 'modules/counter';
+
+let reducer = combineReducers({
+    [counter.constants.name]: counter.reducer,
+    routing: routerReducer
+});
 
 let DevTools = (process.env.NODE_ENV !== 'production') ? 
-require('components/devTools/devTools').default : f => f;
+require('lib/components/devTools').default : f => f;
 
 let enhancements = [ applyMiddleware(thunk) ];
 process.env.NODE_ENV === 'production' ? f => f :

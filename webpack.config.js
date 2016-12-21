@@ -1,10 +1,12 @@
 "use strict";
 /* global process */
 
+const ProjectPackage        = require('./package');
 const webpack               = require('webpack');
 const path                  = require("path");
 const HtmlWebpackPlugin     = require('html-webpack-plugin');
 const ExtractTextPlugin     = require('extract-text-webpack-plugin');
+
 
 module.exports = {
     entry: './src/index.js',
@@ -36,6 +38,10 @@ module.exports = {
             { 
                 test: /\.(png|jpg)$/,
                 loader: 'url-loader?limit=8192'
+            },
+            {
+                test: /\.(md|MD)$/,
+                loader: 'html!markdown?gfm=true'
             }
         ]
     },
@@ -49,6 +55,7 @@ module.exports = {
         //  }
         // }),
         new HtmlWebpackPlugin({
+            title: ProjectPackage.name,
             template: './src/index.ejs',
             inject: false
         }),
@@ -60,9 +67,12 @@ module.exports = {
         new ExtractTextPlugin("[name].css")
     ],
     resolve: {
-        extensions: ["", ".js", ".jsx"],
+        extensions: ["", ".js", ".jsx", ".md", ".MD"],
         alias: {
-            "components": path.resolve(__dirname, "./src/js/components")
+            "css": path.resolve(__dirname, "./src/css"),
+            "img": path.resolve(__dirname, "./src/img"),
+            "lib": path.resolve(__dirname, "./src/js/lib"),
+            "modules": path.resolve(__dirname, "./src/js/modules")
         }
     }
-}
+};

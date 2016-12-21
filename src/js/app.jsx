@@ -2,44 +2,33 @@
 /* global process */
 
 import React from 'react';
-import Counter from 'components/connectedCounter';
-import Home from 'components/connectedHome';
-import NavigationFrame from 'components/NavigationFrame';
-import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
+import {
+    Router,
+    Route,
+    browserHistory,
+    IndexRoute
+} from 'react-router';
 
-import DevTools from 'components/devTools/devTools';
+import counter from 'modules/counter';
+import Home from 'lib/components/connectedHome';
+import NavigationFrame from 'lib/components/navigationFrame';
+import DevTools from 'lib/components/devTools';
 import Store from './store';
 
 let history = syncHistoryWithStore(browserHistory, Store);
 
-class App extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            // set initial state
-        };
-    }
-
-
-    render() {
-        return (
-            <div>
-                {process.env.NODE_ENV === 'production' ? null : <DevTools/>}
-                <Router history={history}>
-                    <Route path="/" component={NavigationFrame}>
-                        <IndexRoute component={Home} />
-                        <Route path="counter" component={Counter}/>
-                        
-                    </Route>
-                </Router>
-            </div>
-        );
-    }
-
-
-}
-
+const App = () => (
+    <div>
+        {process.env.NODE_ENV === 'production' ? null : <DevTools/>}
+        <Router history={history}>
+            <Route path="/" component={NavigationFrame}>
+                <IndexRoute component={Home} />
+                <Route path="counter" component={counter.Counter}/>
+                
+            </Route>
+        </Router>
+    </div>
+);
 
 export default App;

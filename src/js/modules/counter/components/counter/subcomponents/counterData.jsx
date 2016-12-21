@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 import React, { PropTypes } from 'react';
 
@@ -9,11 +9,7 @@ class CounterData extends React.Component {
      * @param  {Object} props - Component Properties
      */
     constructor(props) {
-        super(props)
-
-        this.state = {
-            // initial component state
-        }
+        super(props);
     }
 
     /**
@@ -32,19 +28,19 @@ class CounterData extends React.Component {
                     {this.props.totalClicks}
                 </div>
             </div>
-        )
+        );
     }
 }
 
 CounterData.propTypes = {
     counterValue: PropTypes.number.isRequired,
     totalClicks: PropTypes.number.isRequired
-}
+};
 
 CounterData.defaultProps = {
     counterValue: 0,
     totalClicks: 0
-}
+};
 
 
 export default CounterData;

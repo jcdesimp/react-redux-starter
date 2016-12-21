@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 import React, { PropTypes } from 'react';
 
@@ -9,11 +9,11 @@ class CounterControls extends React.Component {
      * @param  {Object} props - Component Properties
      */
     constructor(props) {
-        super(props)
+        super(props);
 
         this.state = {
             // initial component state
-        }
+        };
     }
 
     /**
