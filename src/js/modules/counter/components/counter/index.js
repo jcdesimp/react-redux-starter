@@ -1,14 +1,16 @@
 "use strict";
 
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
 import Counter from './counter';
 import * as actions from '../../actions';
+import { totalClicksSelector, counterValueSelector } from '../../selectors';
 
 export default connect(
-    state => ({
-        counterValue: state.counter.counterValue,
-        totalClicks: state.counter.totalClicks
+    createStructuredSelector({
+        counterValue: counterValueSelector,
+        totalClicks: totalClicksSelector
     }),
     dispatch => ({
         onPlusClick: () => dispatch(actions.incrementCounter()),
