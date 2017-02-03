@@ -11,7 +11,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: './bin',
-    filename: 'bundle.js',
+    filename: '[chunkhash].bundle.js',
   },
 
   module: {
@@ -63,7 +63,7 @@ module.exports = {
       template: './src/index.ejs',
       inject: false,
     }),
-    new ExtractTextPlugin('[name].css'),
+    new ExtractTextPlugin('[contenthash].bundle.css'),
   ],
   resolve: {
     extensions: ['', '.js', '.jsx', '.md', '.MD'],

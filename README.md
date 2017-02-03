@@ -14,6 +14,8 @@ When you first clone the repo you will need to do `npm install` to install the d
 
 To start the development server run `npm start`.
 
+To create a production bulid of the app, run `npm run build`. This will produce a `./bin` directory with the production build files contained inside.
+
 Project Structure
 ----
 There are a number of subdirectories within the application structure.
@@ -54,6 +56,5 @@ There are a number of subdirectories within the application structure.
 		
 Tips
 -----
- - The `lib` folder and the `modules` folder are aliased in the webpack config, they can be accessed via their names alone, paths are not needed.
- - To produce a compiled app, you can do `npm run`. set the `NODE_ENV` environment variable to "production" to compile for production.
-	 - `NODE_ENV=production npm build`
+ - The `lib` folder and the `modules` folder are aliased in the webpack config, they can be accessed via their names alone, relative paths are not needed.
+ 
