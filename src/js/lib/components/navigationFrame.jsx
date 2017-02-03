@@ -1,40 +1,40 @@
-"use strict";
+
 
 import React from 'react';
 import NavigationBar from './navigationBar';
 
-let links = [
-    {
-        to: '/',
-        name: 'react-redux-starter'
-    },
-    {
-        to: '/counter',
-        name: 'Counter'
-    }
+const links = [
+  {
+    to: '/',
+    name: 'react-redux-starter',
+  },
+  {
+    to: '/counter',
+    name: 'Counter',
+  },
 ];
 
 class NavigationFrame extends React.Component {
-    constructor(props) {
-        super(props);
-        
-        this.state = {
-            // set initial state
-        };
-    }
+  constructor(props) {
+    super(props);
 
-    render() {
-        return (
-            <div>
-                <NavigationBar
-                    links={links}
-                />
-                <div>
-                    {this.props.children}
-                </div>
-            </div>  
-        );
-    }
+    this.state = {
+            // set initial state
+    };
+  }
+
+  render() {
+    return (
+      <div>
+        <NavigationBar
+          links={links}
+        />
+        <div>
+          {this.props.children}
+        </div>
+      </div>
+    );
+  }
 }
 
 

@@ -1,33 +1,33 @@
-"use strict";
 /* global process */
 
-import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 
 import counter from 'modules/counter';
 
-let reducer = combineReducers({
-    [counter.constants.name]: counter.reducer,
-    routing: routerReducer
+const reducer = combineReducers({
+  [counter.constants.name]: counter.reducer,
+  routing: routerReducer,
 });
 
-let DevTools = (process.env.NODE_ENV !== 'production') ? 
+const DevTools = (process.env.NODE_ENV !== 'production') ?
 require('lib/components/devTools').default : f => f;
 
-let enhancements = [ applyMiddleware(thunk) ];
-process.env.NODE_ENV === 'production' ? f => f :
-enhancements.push(DevTools.instrument());
+const enhancements = [applyMiddleware(thunk)];
+
+if (process.env.NODE_ENV !== 'production') {
+  enhancements.push(DevTools.instrument());
+}
 
 const enhancer = compose(
-  ...enhancements
+  ...enhancements,
 );
 
 
-let store = createStore(
-    reducer,
-    enhancer
+const store = createStore(
+  reducer,
+  enhancer,
 );
 
 export default store;

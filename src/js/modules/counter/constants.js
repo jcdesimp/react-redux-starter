@@ -1,3 +1,3 @@
-"use strict";
 
-export const name = "counter";
+
+export const name = 'counter';

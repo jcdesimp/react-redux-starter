@@ -11,7 +11,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: './bin',
-    filename: 'bundle.js',
+    filename: '[chunkhash].bundle.js',
   },
 
   module: {
@@ -47,7 +47,15 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('development'),
+        NODE_ENV: JSON.stringify('production'),
+      },
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+      },
+      output: {
+        comments: false,
       },
     }),
     new HtmlWebpackPlugin({
@@ -55,7 +63,7 @@ module.exports = {
       template: './src/index.ejs',
       inject: false,
     }),
-    new ExtractTextPlugin('[name].css'),
+    new ExtractTextPlugin('[contenthash].bundle.css'),
   ],
   resolve: {
     extensions: ['', '.js', '.jsx', '.md', '.MD'],

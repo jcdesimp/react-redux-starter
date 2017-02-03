@@ -1,4 +1,4 @@
-"use strict";
+
 
 import { createSelector } from 'reselect';
 
@@ -11,5 +11,5 @@ export const counterValueSelector = state => state[name].counterValue;
 export const totalClicksSelector = createSelector(
     addClicksSelector,
     subtractClicksSelector,
-    (addClicks, subtractClicks) => (addClicks + subtractClicks)
+    (addClicks, subtractClicks) => (addClicks + subtractClicks),
 );

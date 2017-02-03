@@ -1,4 +1,3 @@
-"use strict";
 /**
  * Root entry file
  *
@@ -8,8 +7,6 @@
 
 // import styles
 import 'normalize.css';
-import './css/main.scss';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -17,20 +14,22 @@ import { Provider } from 'react-redux';
 import Store from './js/store';
 import App from './js/app';
 
+import './css/main.scss';
+
 /**
  * Main application entry point
  */
 
-let app_props = {
-	// set app props
+const appProps = {
+  // set app props
 };
 
 ReactDOM.render(
-    React.createElement(
-        Provider,
-        {store: Store},
-        React.createElement(App, app_props)
-    ), 
-	document.getElementById('app-container')
+  React.createElement(
+      Provider,
+      { store: Store },
+      React.createElement(App, appProps),
+  ),
+  document.getElementById('app-container'),
 );
 
