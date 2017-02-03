@@ -1,4 +1,4 @@
-"use strict";
+
 
 import React, { PropTypes } from 'react';
 
@@ -8,56 +8,58 @@ class CounterControls extends React.Component {
      * CounterControls Constructor
      * @param  {Object} props - Component Properties
      */
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = {
+    this.state = {
             // initial component state
-        };
-    }
+    };
+
+    this.functionName = this.functionName.bind(this);
+  }
+
 
     /**
      * Render the CounterControls
      * @return {React.Element} - the rendered elment
      */
-    render() {
-        return (
-            <div>
-                <button
-                    className="counter-btn counter-plus-btn"
-                    onClick={this.props.onPlusClick}
-                >
+  render() {
+    return (
+      <div>
+        <button
+          className="counter-btn counter-plus-btn"
+          onClick={this.props.onPlusClick}
+        >
                 +
                 </button>
-                <button
-                    className="counter-btn counter-sub-btn"
-                    onClick={this.props.onSubClick}
-                >
+        <button
+          className="counter-btn counter-sub-btn"
+          onClick={this.props.onSubClick}
+        >
                 -
                 </button>
-                <button
-                    className="counter-btn counter-reset-btn"
-                    onClick={this.props.onResetClick}
-                >
+        <button
+          className="counter-btn counter-reset-btn"
+          onClick={this.props.onResetClick}
+        >
                 Reset
                 </button>
-            </div>
-        )
-    }
+      </div>
+    );
+  }
 }
 
 CounterControls.propTypes = {
-    onPlusClick: PropTypes.func.isRequired,
-    onSubClick: PropTypes.func.isRequired,
-    onResetClick: PropTypes.func.isRequired
-}
+  onPlusClick: PropTypes.func.isRequired,
+  onSubClick: PropTypes.func.isRequired,
+  onResetClick: PropTypes.func.isRequired,
+};
 
 CounterControls.defaultProps = {
-    onPlusClick: () => {},
-    onSubClick: () => {},
-    onResetClick: () => {}
-}
+  onPlusClick: () => {},
+  onSubClick: () => {},
+  onResetClick: () => {},
+};
 
 export default CounterControls;
-
 
