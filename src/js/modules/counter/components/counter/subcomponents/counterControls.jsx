@@ -12,10 +12,9 @@ class CounterControls extends React.Component {
     super(props);
 
     this.state = {
-            // initial component state
+      // initial component state
     };
 
-    this.functionName = this.functionName.bind(this);
   }
 
 
