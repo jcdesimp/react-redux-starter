@@ -16,5 +16,5 @@ export default connect(
       onPlusClick: () => dispatch(actions.incrementCounter()),
       onSubClick: () => dispatch(actions.decrementCounter()),
       onResetClick: () => dispatch(actions.resetCounter()),
-    }),
+    })
 )(Counter);

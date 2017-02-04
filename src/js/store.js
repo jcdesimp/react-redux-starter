@@ -21,13 +21,13 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const enhancer = compose(
-  ...enhancements,
+  ...enhancements
 );
 
 
 const store = createStore(
   reducer,
-  enhancer,
+  enhancer
 );
 
 export default store;

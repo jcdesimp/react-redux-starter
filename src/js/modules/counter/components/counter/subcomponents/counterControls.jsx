@@ -14,7 +14,6 @@ class CounterControls extends React.Component {
     this.state = {
       // initial component state
     };
-
   }
 
 

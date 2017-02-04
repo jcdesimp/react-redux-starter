@@ -6,7 +6,7 @@ import {
   Router,
   Route,
   browserHistory,
-  IndexRoute,
+  IndexRoute
 } from 'react-router';
 
 import counter from 'modules/counter';

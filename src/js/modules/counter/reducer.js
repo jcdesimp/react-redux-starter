@@ -3,7 +3,7 @@
 import {
     INCREMEMENT_COUNTER,
     DECREMEMENT_COUNTER,
-    RESET_COUNTER,
+    RESET_COUNTER
 } from './actionTypes';
 
 const defaultState = {
