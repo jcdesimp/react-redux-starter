@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 
 const navigationBarStyle = {
@@ -44,7 +45,7 @@ const NavigationBar = props => (
 );
 
 NavigationBar.propTypes = {
-  links: React.PropTypes.arrayOf(React.PropTypes.object),
+  links: PropTypes.arrayOf(React.PropTypes.object),
 };
 
 NavigationBar.defaultProps = {

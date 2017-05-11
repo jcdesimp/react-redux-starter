@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import CounterControls from './subcomponents/counterControls';
 import CounterData from './subcomponents/counterData';
 
@@ -15,11 +16,11 @@ const Counter = props => (
 
 
 Counter.propTypes = {
-  onPlusClick: React.PropTypes.func.isRequired,
-  onSubClick: React.PropTypes.func.isRequired,
-  onResetClick: React.PropTypes.func.isRequired,
-  counterValue: React.PropTypes.number.isRequired,
-  totalClicks: React.PropTypes.number.isRequired,
+  onPlusClick: PropTypes.func.isRequired,
+  onSubClick: PropTypes.func.isRequired,
+  onResetClick: PropTypes.func.isRequired,
+  counterValue: PropTypes.number.isRequired,
+  totalClicks: PropTypes.number.isRequired,
 };
 
 export default Counter;

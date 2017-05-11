@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import NavigationBar from './navigationBar';
 
@@ -36,10 +34,5 @@ class NavigationFrame extends React.Component {
     );
   }
 }
-
-
-NavigationFrame.propTypes = {
-    // proptypes
-};
 
 export default NavigationFrame;

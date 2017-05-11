@@ -1,6 +1,5 @@
-
-
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 // define component class by extending React.Component
 class CounterControls extends React.Component {
