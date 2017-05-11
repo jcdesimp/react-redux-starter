@@ -8,14 +8,23 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    main: './src/index.js',
+    vendor: [
+      'redux',
+      'react-redux',
+      'react',
+      'react-dom',
+      'react-router',
+    ],
+  },
   output: {
     path: './bin',
     filename: '[chunkhash].bundle.js',
   },
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx|\.js?$/,
         exclude: /(node_modules|bower_components)/,
@@ -32,7 +41,7 @@ module.exports = {
       },
       {
         test: /\.(css|scss)$/,
-        loader: ExtractTextPlugin.extract('style', 'css!sass'),
+        use: ExtractTextPlugin.extract(['css-loader', 'sass-loader']),
       },
       {
         test: /\.(png|jpg)$/,
@@ -40,7 +49,7 @@ module.exports = {
       },
       {
         test: /\.(md|MD)$/,
-        loader: 'html!markdown?gfm=true',
+        loader: 'html-loader!markdown-loader?gfm=true',
       },
     ],
   },
@@ -61,9 +70,15 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: ProjectPackage.name,
       template: './src/index.ejs',
-      inject: false,
     }),
-    new ExtractTextPlugin('[contenthash].bundle.css'),
+    new ExtractTextPlugin({
+      filename: '[contenthash].bundle.css',
+      allChunks: true,
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: ['vendor', 'manifest'],
+      minChunks: Infinity,
+    }),
   ],
   resolve: {
     extensions: ['', '.js', '.jsx', '.md', '.MD'],

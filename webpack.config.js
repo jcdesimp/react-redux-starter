@@ -15,7 +15,7 @@ module.exports = {
   },
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx|\.js?$/,
         exclude: /(node_modules|bower_components)/,
@@ -32,7 +32,7 @@ module.exports = {
       },
       {
         test: /\.(css|scss)$/,
-        loader: ExtractTextPlugin.extract('style', 'css!sass'),
+        use: ExtractTextPlugin.extract(['css-loader', 'sass-loader']),
       },
       {
         test: /\.(png|jpg)$/,
@@ -40,7 +40,7 @@ module.exports = {
       },
       {
         test: /\.(md|MD)$/,
-        loader: 'html!markdown?gfm=true',
+        loader: 'html-loader!markdown-loader?gfm=true',
       },
     ],
   },
@@ -53,12 +53,14 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: ProjectPackage.name,
       template: './src/index.ejs',
-      inject: false,
     }),
-    new ExtractTextPlugin('[name].css'),
+    new ExtractTextPlugin({
+      filename: '[name].css',
+      allChunks: true,
+    }),
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx', '.md', '.MD'],
+    extensions: ['.js', '.jsx', '.md', '.MD'],
     alias: {
       css: path.resolve(__dirname, './src/css'),
       img: path.resolve(__dirname, './src/img'),
