@@ -13,7 +13,7 @@ module.exports = {
     path: './bin',
     filename: 'bundle.js',
   },
-
+  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -67,5 +67,10 @@ module.exports = {
       lib: path.resolve(__dirname, './src/js/lib'),
       modules: path.resolve(__dirname, './src/js/modules'),
     },
+  },
+  devServer: {
+    // contentBase: path.join(__dirname),
+    compress: true,
+    port: 9000,
   },
 };

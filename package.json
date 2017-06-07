@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf ./bin; webpack -p --config webpack.production.config.js",
-    "start": "webpack-dev-server -d ./src/index.js --hot --inline --history-api-fallback",
+    "start": "webpack-dev-server ./src/index.js --hot --inline --history-api-fallback",
     "lint": "eslint --ext .jsx --ext .js ./src --;  exit 0"
   },
   "author": "Joe DeSimpliciis",
