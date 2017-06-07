@@ -19,7 +19,7 @@ module.exports = {
     ],
   },
   output: {
-    path: './bin',
+    path: path.resolve(__dirname, './bin'),
     filename: '[chunkhash].bundle.js',
   },
 
@@ -81,7 +81,7 @@ module.exports = {
     }),
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx', '.md', '.MD'],
+    extensions: ['.js', '.jsx', '.md', '.MD'],
     alias: {
       css: path.resolve(__dirname, './src/css'),
       img: path.resolve(__dirname, './src/img'),
